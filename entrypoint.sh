@@ -15,6 +15,8 @@ fi
 BRANCH=$(git branch)
 BRANCH=${BRANCH##*/}
 STAGE="_"
+echo $BRANCH
+echo $STAGE
 if [[ "${BRANCH}"=="master" ]]; then
     STAGE="production"
 elif [[ "${BRANCH}"=="develop" ]]; then
