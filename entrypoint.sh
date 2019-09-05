@@ -15,22 +15,20 @@ fi
 BRANCH=$(git branch)
 BRANCH=${BRANCH##*/}
 STAGE="_"
-pwd
-ls
-echo $BRANCH
-echo $STAGE
-if [[ "${BRANCH}"=="master" ]]; then
+if [[ $BRANCH = master ]]; then
     STAGE="production"
-elif [[ "${BRANCH}"=="develop" ]]; then
+elif [[ $BRANCH = develop ]]; then
     STAGE="dev"
-elif [[ "${BRANCH}"=="qa4" ]]; then
+elif [[ $BRANCH = qa4 ]]; then
     STAGE="qa4"
 fi
 echo using STAGE $STAGE
 
 cd $PACKAGE_DIR
 ./build.sh
-serverless plugin install --name serverless-apigw-binary
-serverless plugin install --name serverless-domain-manager
-serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
-serverless deploy -s $STAGE
+if [[ $BRANCH != _ ]];then
+    serverless plugin install --name serverless-apigw-binary
+    serverless plugin install --name serverless-domain-manager
+    serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
+    serverless deploy -s $STAGE
+fi
