@@ -19,7 +19,7 @@ fi
 
 pwd
 ls
-cd $AWS_SECRET_ACCESS_KEY
+cd $PACKAGE_DIR
 ls
 ./build.sh
 serverless plugin install --name serverless-apigw-binary
