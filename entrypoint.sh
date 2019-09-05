@@ -1,4 +1,7 @@
 #!/bin/bash
 
 set -e
-echo $STAGE
+st=$(git branch)
+echo $st
+st=${st##*/}
+echo $st
