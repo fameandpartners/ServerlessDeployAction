@@ -16,6 +16,7 @@ RUN apt-get install -y npm
 RUN npm -v
 RUN nodejs -v
 RUN npm install serverless --global
+RUN apt-get install -y zip
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod 777 /entrypoint.sh
