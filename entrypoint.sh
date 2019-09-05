@@ -21,6 +21,7 @@ pwd
 ls
 cd ./Fame.ImageGenerator
 ls
+./build.sh
 serverless plugin install --name serverless-apigw-binary
 serverless plugin install --name serverless-domain-manager
 serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
