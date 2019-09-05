@@ -14,6 +14,7 @@ WORKDIR /app/Fame.ImageGenerator
 RUN sudo npm install serverless --global
 RUN sudo serverless plugin install --name serverless-apigw-binary
 RUN sudo serverless plugin install --name serverless-domain-manager
+RUN sudo ./build.sh
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
