@@ -10,8 +10,9 @@ LABEL com.github.actions.color="orange"
 LABEL repository="https://github.com/lijinglun-1/ServerlessDeployAction"
 LABEL homepage="https://github.com/lijinglun-1/ServerlessDeployAction"
 
-WORKDIR /app/Fame.ImageGenerator
-RUN echo ${STAGE}
+WORKDIR ./Fame.ImageGenerator
+RUN ls ./
+RUN ls ~
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update
 RUN apt-get install -y nodejs
