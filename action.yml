@@ -1,0 +1,8 @@
+name: 'Serverless Deploy Action'
+description: 'deploy using Serverless Framework and dotnet core ,then push to aws'
+branding:
+  icon: 'upload-cloud'
+  color: 'orange'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
