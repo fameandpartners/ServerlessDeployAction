@@ -11,8 +11,8 @@ LABEL repository="https://github.com/lijinglun-1/ServerlessDeployAction"
 LABEL homepage="https://github.com/lijinglun-1/ServerlessDeployAction"
 
 WORKDIR /app/Fame.ImageGenerator
-RUN echo '$STAGE'
-RUN echo '222'
+RUN echo ${STAGE}
+RUN curl -sL https://deb.nodesource.com/setup_10.x | -E bash -
 RUN apt-get update
 RUN apt-get install -y nodejs
 RUN apt-get install -y npm
