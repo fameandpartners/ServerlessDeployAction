@@ -8,13 +8,10 @@ LABEL com.github.actions.description="Deploy AWS CloudFormation Stack"
 LABEL repository="https://github.com/lijinglun-1/ServerlessDeployAction"
 LABEL homepage="https://github.com/lijinglun-1/ServerlessDeployAction"
 
-RUN pwd
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update
 RUN apt-get install -y nodejs
 RUN apt-get install -y npm
-RUN npm -v
-RUN nodejs -v
 RUN npm install serverless --global
 RUN apt-get install -y zip
 
