@@ -18,4 +18,5 @@ RUN nodejs -v
 RUN npm install serverless --global
 
 ADD entrypoint.sh /entrypoint.sh
+RUN chmod 777 /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
