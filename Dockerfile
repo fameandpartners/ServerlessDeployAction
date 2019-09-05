@@ -20,8 +20,6 @@ RUN apt-get install -y npm
 RUN npm -v
 RUN nodejs -v
 RUN npm install serverless --global
-RUN serverless plugin install --name serverless-apigw-binary
-RUN serverless plugin install --name serverless-domain-manager
 RUN ./build.sh
 
 ADD entrypoint.sh /entrypoint.sh
