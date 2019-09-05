@@ -20,7 +20,6 @@ RUN apt-get install -y npm
 RUN npm -v
 RUN nodejs -v
 RUN npm install serverless --global
-RUN ./build.sh
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
