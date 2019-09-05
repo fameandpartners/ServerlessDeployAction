@@ -17,6 +17,11 @@ if [[ -z "$AWS_SECRET_ACCESS_KEY" ]]; then
     exit 1
 fi
 
+pwd
 ls
+cd ./Fame.ImageGenerator
+ls
+serverless plugin install --name serverless-apigw-binary
+serverless plugin install --name serverless-domain-manager
 serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
 serverless deploy -s $STAGE
