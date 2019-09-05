@@ -15,6 +15,8 @@ fi
 BRANCH=$(git branch)
 BRANCH=${BRANCH##*/}
 STAGE="_"
+pwd
+ls
 echo $BRANCH
 echo $STAGE
 if [[ "${BRANCH}"=="master" ]]; then
