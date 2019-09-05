@@ -11,9 +11,14 @@ LABEL repository="https://github.com/lijinglun-1/ServerlessDeployAction"
 LABEL homepage="https://github.com/lijinglun-1/ServerlessDeployAction"
 
 WORKDIR /app/Fame.ImageGenerator
-RUN echo $STAGE
+RUN echo '$STAGE'
+RUN echo '222'
 RUN apt-get update
-RUN apt-get install -y serverless 
+RUN apt-get install -y nodejs
+RUN apt-get install -y npm
+RUN npm -v
+RUN nodejs -v
+RUN npm install serverless --global
 RUN serverless plugin install --name serverless-apigw-binary
 RUN serverless plugin install --name serverless-domain-manager
 RUN ./build.sh
