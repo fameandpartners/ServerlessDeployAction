@@ -2,11 +2,6 @@
 
 set -e
 
-if [[ -z "$STAGE" ]]; then
-    echo STAGE invalid
-    exit 1
-fi
-
 if [[ -z "$AWS_ACCESS_KEY_ID" ]]; then
     echo AWS Access Key ID invalid
     exit 1
@@ -17,10 +12,19 @@ if [[ -z "$AWS_SECRET_ACCESS_KEY" ]]; then
     exit 1
 fi
 
-pwd
-ls
+BRANCH=$(git branch)
+BRANCH=${BRANCH##*/}
+STAGE="_"
+if [[ "${BRANCH}"=="master" ]]; then
+    STAGE="production"
+elif [[ "${BRANCH}"=="develop" ]]; then
+    STAGE="dev"
+elif [[ "${BRANCH}"=="qa4" ]]; then
+    STAGE="qa4"
+fi
+echo using STAGE $STAGE
+
 cd $PACKAGE_DIR
-ls
 ./build.sh
 serverless plugin install --name serverless-apigw-binary
 serverless plugin install --name serverless-domain-manager
