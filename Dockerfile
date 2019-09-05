@@ -11,10 +11,11 @@ LABEL repository="https://github.com/lijinglun-1/ServerlessDeployAction"
 LABEL homepage="https://github.com/lijinglun-1/ServerlessDeployAction"
 
 WORKDIR /app/Fame.ImageGenerator
-RUN sudo npm install serverless --global
-RUN sudo serverless plugin install --name serverless-apigw-binary
-RUN sudo serverless plugin install --name serverless-domain-manager
-RUN sudo ./build.sh
+RUN ls
+RUN npm install serverless --global
+RUN serverless plugin install --name serverless-apigw-binary
+RUN serverless plugin install --name serverless-domain-manager
+RUN ./build.sh
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
