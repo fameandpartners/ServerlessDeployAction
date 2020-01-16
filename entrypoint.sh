@@ -11,7 +11,10 @@ if [[ -z "$AWS_SECRET_ACCESS_KEY" ]]; then
     echo AWS Secret Access Key invalid
     exit 1
 fi
-
+pwd
+echo ----------------------------------
+git branch
+echo ------------------------------------
 BRANCH=$(git branch)
 echo git branch $BRANCH
 BRANCH=${BRANCH##*/}
