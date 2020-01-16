@@ -29,7 +29,8 @@ echo using STAGE $STAGE
 cd $PACKAGE_DIR
 ./build.sh
 if [[ $BRANCH != _ ]];then
-    export SLS_DEBUG=*
+    #uncomment the below line to enable debug
+    #export SLS_DEBUG=*
     serverless plugin install --name serverless-apigw-binary
     serverless plugin install --name serverless-domain-manager
     serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
