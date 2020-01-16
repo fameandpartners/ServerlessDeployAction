@@ -12,13 +12,8 @@ if [[ -z "$AWS_SECRET_ACCESS_KEY" ]]; then
     exit 1
 fi
 pwd
-echo ref $GITHUB_REF
-echo ----------------------------------
-git branch
-echo ------------------------------------
-BRANCH=$(git branch)
-echo git branch $BRANCH
-BRANCH=${BRANCH##*/}
+echo current ref: $GITHUB_REF
+BRANCH=${GITHUB_REF##*/}
 STAGE="_"
 if [[ $BRANCH = master ]]; then
     STAGE="production"
@@ -27,7 +22,7 @@ elif [[ $BRANCH = develop ]]; then
 elif [[ $BRANCH = qa4 ]]; then
     STAGE="qa4"
 fi
-echo branch $BRANCH
+echo current branch $BRANCH
 echo using STAGE $STAGE
 
 cd $PACKAGE_DIR
