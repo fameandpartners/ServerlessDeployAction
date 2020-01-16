@@ -12,6 +12,7 @@ if [[ -z "$AWS_SECRET_ACCESS_KEY" ]]; then
     exit 1
 fi
 pwd
+echo ref $GITHUB_REF
 echo ----------------------------------
 git branch
 echo ------------------------------------
