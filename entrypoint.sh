@@ -11,6 +11,7 @@ if [[ -z "$AWS_SECRET_ACCESS_KEY" ]]; then
     echo AWS Secret Access Key invalid
     exit 1
 fi
+echo current directory:
 pwd
 echo current ref: $GITHUB_REF
 BRANCH=${GITHUB_REF##*/}
@@ -22,7 +23,7 @@ elif [[ $BRANCH = develop ]]; then
 elif [[ $BRANCH = qa4 ]]; then
     STAGE="qa4"
 fi
-echo current branch $BRANCH
+echo current branch: $BRANCH
 echo using STAGE $STAGE
 
 cd $PACKAGE_DIR
