@@ -13,6 +13,7 @@ if [[ -z "$AWS_SECRET_ACCESS_KEY" ]]; then
 fi
 
 BRANCH=$(git branch)
+echo git branch $BRANCH
 BRANCH=${BRANCH##*/}
 STAGE="_"
 if [[ $BRANCH = master ]]; then
@@ -22,6 +23,7 @@ elif [[ $BRANCH = develop ]]; then
 elif [[ $BRANCH = qa4 ]]; then
     STAGE="qa4"
 fi
+echo branch $BRANCH
 echo using STAGE $STAGE
 
 cd $PACKAGE_DIR
