@@ -30,7 +30,7 @@ cd $PACKAGE_DIR
 ./build.sh
 if [[ $BRANCH != _ ]];then
     #uncomment the below line to enable debug
-    export SLS_DEBUG=*
+    #export SLS_DEBUG=*
     echo start severless deploy
     serverless plugin install --name serverless-apigw-binary
     serverless plugin install --name serverless-domain-manager
